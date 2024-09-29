@@ -1,64 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>퀴즈</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Section 1: Welcome Section -->
-        <section id="section1">
-            <h2>Welcome to the Quiz!</h2>
-            <p>This quiz will test your knowledge. Click the button below to start.</p>
-            <button id="startQuizBtn">Start Quiz</button>
-        </section>
+    <div class="quiz-container">
+        <!-- 섹션 1: 웰컴 페이지 -->
+        <div id="section1" class="section">
+            <h1>퀴즈에 오신 것을 환영합니다!</h1>
+            <button onclick="showSection('section2')">시작하기</button>
+        </div>
 
-        <!-- Section 2: Personal Information Section -->
-        <section id="section2">
-            <h2>Personal Information</h2>
+        <!-- 섹션 2: 개인정보 입력 -->
+        <div id="section2" class="section" style="display: none;">
+            <h2>개인정보 입력</h2>
             <form id="personalInfoForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-
-                <label for="id">ID:</label>
-                <input type="text" id="id" name="id" required><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-
-                <button type="submit">Next</button>
-            </form>
-        </section>
-
-        <!-- Section 3: Quiz Section -->
-        <section id="section3">
-            <h2>Quiz Section</h2>
-            <form id="quizForm">
-                <div class="quiz-question">
-                    <label>Question 1: What does HTML stand for?</label><br>
-                    <input type="radio" name="q1" value="A"> HyperText Markup Language<br>
-                    <input type="radio" name="q1" value="B"> Hyperlink and Text Markup Language<br>
-                    <input type="radio" name="q1" value="C"> Home Tool Markup Language<br>
+                <div class="input-box">
+                    <label for="name">이름:</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-
-                <div class="quiz-question">
-                    <label>Question 2: What does CSS stand for?</label><br>
-                    <input type="radio" name="q2" value="A"> Creative Style Sheets<br>
-                    <input type="radio" name="q2" value="B"> Cascading Style Sheets<br>
-                    <input type="radio" name="q2" value="C"> Computer Style Sheets<br>
+                <div class="input-box">
+                    <label for="id">ID:</label>
+                    <input type="text" id="id" name="id" required>
                 </div>
-
-                <button type="submit">Submit Quiz</button>
+                <div class="input-box">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="button" onclick="showSection('section3')">다음</button>
             </form>
-        </section>
+        </div>
 
-        <!-- Section 4: Instructions Section -->
-        <section id="section4">
-            <h2>Instructions</h2>
-            <p>Thank you for completing the quiz! Your results will be processed.</p>
-        </section>
+        <!-- 섹션 3: 퀴즈 질문 -->
+        <div id="section3" class="section" style="display: none;">
+            <h2>퀴즈</h2>
+            <!-- 질문 1 -->
+            <div class="question-box">
+                <p>질문 1: ...</p>
+                <input type="radio" name="q1" value="1"> 답변 1<br>
+                <input type="radio" name="q1" value="2"> 답변 2<br>
+            </div>
+
+            <!-- 질문 2 -->
+            <div class="question-box">
+                <p>질문 2: ...</p>
+                <input type="radio" name="q2" value="1"> 답변 1<br>
+                <input type="radio" name="q2" value="2"> 답변 2<br>
+            </div>
+
+            <!-- 질문 3: 정답이 2개인 경우 -->
+            <div class="question-box">
+                <p>질문 3: ... (정답이 2개)</p>
+                <input type="checkbox" name="q3" value="1"> 답변 1<br>
+                <input type="checkbox" name="q3" value="2"> 답변 2<br>
+                <input type="checkbox" name="q3" value="3"> 답변 3<br>
+            </div>
+
+            <!-- 질문 4: 6개의 선지 중 4개 정답 -->
+            <div class="question-box">
+                <p>질문 4: ... (6개의 선지 중 4개 정답)</p>
+                <input type="checkbox" name="q4" value="1"> 답변 1<br>
+                <input type="checkbox" name="q4" value="2"> 답변 2<br>
+                <input type="checkbox" name="q4" value="3"> 답변 3<br>
+                <input type="checkbox" name="q4" value="4"> 답변 4<br>
+                <input type="checkbox" name="q4" value="5"> 답변 5<br>
+                <input type="checkbox" name="q4" value="6"> 답변 6<br>
+            </div>
+
+            <button onclick="submitQuiz()">제출</button>
+        </div>
+
+        <!-- 섹션 4: 지시 페이지 -->
+        <div id="section4" class="section" style="display: none;">
+            <h2>퀴즈가 제출되었습니다!</h2>
+            <p>결과를 확인해 주세요.</p>
+        </div>
     </div>
 
     <script src="script.js"></script>
