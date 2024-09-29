@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Section 1: Welcome Section -->
+        <section id="section1">
+            <h2>Welcome to the Quiz!</h2>
+            <p>This quiz will test your knowledge. Click the button below to start.</p>
+            <button id="startQuizBtn">Start Quiz</button>
+        </section>
+
+        <!-- Section 2: Personal Information Section -->
+        <section id="section2">
+            <h2>Personal Information</h2>
+            <form id="personalInfoForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <button type="submit">Next</button>
+            </form>
+        </section>
+
+        <!-- Section 3: Quiz Section -->
+        <section id="section3">
+            <h2>Quiz Section</h2>
+            <form id="quizForm">
+                <div class="quiz-question">
+                    <label>Question 1: What does HTML stand for?</label><br>
+                    <input type="radio" name="q1" value="A"> HyperText Markup Language<br>
+                    <input type="radio" name="q1" value="B"> Hyperlink and Text Markup Language<br>
+                    <input type="radio" name="q1" value="C"> Home Tool Markup Language<br>
+                </div>
+
+                <div class="quiz-question">
+                    <label>Question 2: What does CSS stand for?</label><br>
+                    <input type="radio" name="q2" value="A"> Creative Style Sheets<br>
+                    <input type="radio" name="q2" value="B"> Cascading Style Sheets<br>
+                    <input type="radio" name="q2" value="C"> Computer Style Sheets<br>
+                </div>
+
+                <button type="submit">Submit Quiz</button>
+            </form>
+        </section>
+
+        <!-- Section 4: Instructions Section -->
+        <section id="section4">
+            <h2>Instructions</h2>
+            <p>Thank you for completing the quiz! Your results will be processed.</p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
