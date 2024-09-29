@@ -1,0 +1,122 @@
+/* 전체 섹션 설정 */
+section {
+    padding: 20px; /* 섹션 내부 여백 */
+    margin: 0 auto; /* 가운데 정렬 */
+    width: 950px; /* 섹션의 고정 너비 */
+    max-width: 950px; /* 최대 너비를 950px로 설정 */
+    box-sizing: border-box; /* padding과 border를 포함한 전체 크기 설정 */
+}
+
+/* 퀴즈 페이지 스타일 */
+#quiz-container {
+    overflow-y: auto; /* 스크롤 생성을 위해 overflow 설정 */
+    max-height: 70vh; /* 화면 높이의 70%로 제한 */
+    padding: 20px; /* 내부 여백 추가 */
+    box-sizing: border-box; /* padding과 border를 요소의 전체 크기에 포함 */
+}
+
+.question-box {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.option-box {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.option-box label {
+    display: flex;
+    align-items: center;
+}
+
+.option-box input[type="checkbox"],
+.option-box input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* 개인정보 입력 섹션 스타일 */
+.input-container {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* 에러 메시지 스타일 */
+#error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 제출 버튼 스타일 */
+#quiz-section button {
+    margin-top: 10px; /* 위쪽에 10px 간격 추가 */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#quiz-section button:hover {
+    background-color: #0056b3;
+}
+
+/* 기존 버튼 스타일 */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 타이머 컨테이너 스타일 */
+#timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 프로그레스 바 스타일 */
+#progress-bar {
+    width: 100%;
+    height: 20px;
+    margin-top: 10px;
+}
+
+/* 에러 메시지 스타일 */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none; /* 초기에는 표시하지 않음 */
+}
