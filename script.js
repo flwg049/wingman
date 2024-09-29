@@ -16,7 +16,7 @@ document.getElementById('quizForm').addEventListener('submit', function(event) {
     const quizResult = calculateQuizResult(); // 퀴즈 결과 계산
 
     // Google Sheets로 데이터 전송
-    fetch('YOUR_WEB_APP_URL', {
+    fetch('https://script.google.com/macros/s/AKfycbwVkaB3QGlqw4wResdJZdS_vTrL-dlvPYpE2MraKRwexwcBzxpNOoUTV1R_jRlEdh0TeQ/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
