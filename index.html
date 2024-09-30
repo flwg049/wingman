@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>퀴즈</title>
+    <!-- EmailJS 최신 버전 SDK 로드 -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+                publicKey: "BCJZRPFNFVRUDHBMR",
+            });
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<body>
+    <!-- 웰컴 페이지 섹션 -->
+    <section id="welcome-page" class="section">
+        <div class="welcome-content">
+            <h1>SER-FL-049 Cadet Wingman Final Test</h1>
+            <h3>Test Revised: February 2015</h3>
+            <p>A passing score is 9 or more out of 10.</p>
+            <p>After you take this test, be sure to "Submit" it.</p>
+            <button id="start-quiz" class="start-btn">Start Now</button>
+        </div>
+    </section>
+
+    <!-- 개인정보 입력 섹션 -->
+    <section id="personal-info-page" class="section" style="display: none;">
+        <h2>Cadet Information</h2>
+        <p>Please enter your name, CAPID, e-mail address to begin the quiz.</p>
+        <form id="personal-info-form">
+            <label for="name">Name (Last, First):</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="id">CAPID (6-digit number):</label>
+            <input type="text" id="id" name="id" required>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <!-- 에러 메시지를 표시할 단일 영역 -->
+            <div id="error-message" style="color: red;"></div>
+        
+            <div class="info-box">
+                <h3>⚠️IMPORTANT</h3>
+                <p>A passing score is 9 or more out of 10. After you take the test, be sure to "Submit" it.</p>
+                <p>This quiz has a time limit - 20 minutes.</p>
+            </div>
+
+            <button type="submit">Start Quiz</button>
+        </form>
+    </section>
+
+    <!-- 퀴즈 섹션 -->
+    <section id="quiz-page" class="section" style="display: none;">
+        <h2>SER-FL-049 Cadet Wingman Final Test</h2>
+        <!-- 타이머와 프로그레스바 추가 -->
+        <div id="timer">Time remaining: 20:00</div>
+        <div id="progress-container" style="width: 100%; background: #e0e0e0; border-radius: 5px; overflow: hidden; margin: 10px 0;">
+            <div id="progress-bar" style="width: 0%; height: 20px; background-color: #007bff;"></div>
+        </div>
+        <div id="quiz-container"></div>
+        <button id="submit-quiz">Submit the Quiz</button>
+    </section>
+    
+    <!-- 퀴즈 완료 섹션 -->
+    <section id="instruction-page" class="section" style="display: none;">
+        <h2>Quiz Result</h2>
+        <p>Check your quiz result below. To submit your quiz, click "Submit - Finish Quiz"</p>
+        
+        <!-- 사용자 정보 및 점수 표시 -->
+        <div id="result-info">
+            <p><strong>Name:</strong> <span id="result-name"></span></p>
+            <p><strong>CAPID:</strong> <span id="result-id"></span></p>
+            <p><strong>Score:</strong> <span id="result-score"></span></p>
+        </div>
+        
+        <!-- 원형 그래프를 위한 캔버스 추가 -->
+        <div style="width: 50%; margin: 0 auto;">
+            <canvas id="quiz-score-chart"></canvas>
+        </div>
+        
+        <button id="finish-quiz">Submit - Finish Quiz</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
