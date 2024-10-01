@@ -1,7 +1,7 @@
 /* 기본 스타일 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     margin: 0;
     padding: 20px;
 }
@@ -184,10 +184,11 @@ button:hover {
 }
 
 /* 웰컴 페이지 스타일 */
+/* 첫 번째 섹션 높이 고정 */
 #welcome-page {
     background: url('https://admin.cap.gov/media/cms/LOGO_1to1_DEE1AF60214FE.jpg') no-repeat center center;
-    background-size: contain; /* 이미지 크기를 원본 크기로 유지 */
-    height: 100vh;
+    background-size: contain;
+    height: 600px; /* 높이를 600픽셀로 고정 */
     display: flex;
     align-items: center;
     justify-content: center;
