@@ -1,0 +1,282 @@
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet" />
+<style type="text/css">/* #inner-content 내부 스타일 적용 */
+    #inner-content {
+        width: 90%;
+        max-width: 1920px;
+        margin: 0 auto;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 폰트 및 색상 설정 */
+    #inner-content * {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+    }
+
+    /* 네비게이션 스타일 */
+    .navbar {
+        display: flex;
+        justify-content: center;
+        background-color: #001489 !important; /* 짙은 회색 배경 */
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .nav-item {
+        margin: 0 20px;
+        color: #9EA2A2 !important; /* 기본 글씨 색상: 흰색 */
+        font-size: 1.1em;
+        cursor: default; /* 클릭 막기 */
+        transition: color 0.3s;
+    }
+
+    .nav-item:hover {
+        color: #ffffff !important; /* 호버 시 색상: 연한 회색 */
+    }
+
+    /* 현재 섹션 표시 */
+    .active-nav {
+        font-weight: bold;
+        color: #FFCD00 !important; /* 활성화된 항목: 약간 더 밝은 흰색 */
+    }
+
+    /* 기본 섹션 스타일 */
+    .section {
+        display: none;
+        padding: 40px 20px;
+        text-align: center;
+        position: relative;
+        min-height: 80vh;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+
+    /* 활성화된 섹션을 표시 */
+    .active {
+        display: block;
+    }
+
+    /* 섹션 스타일 */
+    .section {
+        position: relative; /* 부모 요소에 상대 위치 지정 */
+        padding-bottom: 100px; /* 버튼 컨테이너를 위한 하단 공간 확보 */
+        min-height: 80vh; /* 최소 높이 설정 */
+    }
+
+    /* 첫 번째 섹션 버튼 컨테이너 스타일 */
+    .intro-button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: absolute; /* 절대 위치 지정 */
+        bottom: 20px; /* 섹션 하단에서 20px 위에 위치 */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 네 번째 섹션 버튼 컨테이너 스타일 */
+    .quiz-button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: absolute; /* 절대 위치 지정 */
+        bottom: 20px; /* iframe 하단에서 20px 위에 위치 */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 다른 섹션 버튼 컨테이너 스타일 */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: relative; /* 상대 위치 지정 */
+        margin-top: 20px; /* 콘텐츠와 버튼 사이의 간격 */
+    }
+
+    /* 섹션의 하단에 여유 공간 추가 */
+    .section {
+        padding-bottom: 20px; /* 기본 하단 패딩 */
+        min-height: 80vh; /* 최소 높이 설정 */
+    }
+
+    /* 버튼 스타일 */
+    .btn {
+        padding: 12px 25px;
+        background-color: #001489;
+        color: #ffffff !important;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2em;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #001589b5;
+        transform: scale(1.05);
+    }
+
+    /* 동영상 컨테이너: 16:9 비율 유지 */
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        margin: 20px 0;
+    }
+
+    /* 비디오 및 iframe 크기 조정 */
+    video, iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* iframe 스타일 */
+    .quiz-iframe {
+        width: 100%;
+        height: 80vh;
+        border: none;
+    }
+
+        /* h4와 p 요소 간의 간격 제거 */
+        .section h4 {
+        margin-bottom: 0; /* h4의 아래쪽 마진 제거 */
+    }
+
+    .section p {
+        margin-top: 0; /* p의 위쪽 마진 제거 */
+    }
+</style>
+<div id="inner-content"><!-- 컨테이너: 네비게이션 바와 섹션을 담는 요소 -->
+	<div class="navbar"><span class="active-nav nav-item">Introduction</span> <span class="nav-item">Watch: Cadet Wingman Video</span> <span class="nav-item">Watch: Batman Begins</span> <span class="nav-item">Final Quiz</span>
+	</div>
+	<!-- 첫 번째 섹션: Introduction -->
+
+	<div class="section active" id="section1"><img alt="Wingman Course" src="/media/cms/wingman2_EA40A98C39D37.webp" style="border-radius:10px; box-shadow:0 4px 8px rgba(0, 0, 0, 0.2); margin:20px 0; max-width:100%" />
+		<div style="max-width: 100%; margin: 20px auto; text-align: left; line-height: 1.6;">
+			<p>Welcome to the <strong style="color:#ba0c2f; font-weight:bold">Cadet Wingman Course!</strong></p>
+
+			<p>In this course, you will be introduced to the <strong style="font-weight:bold">Core Values</strong>, the <strong style="font-weight:bold">Wingman Concept</strong>, <strong style="font-weight:bold">Safety</strong>, and <strong style="font-weight:bold">Cadet Protection</strong>.</p>
+
+			<p>Throughout this course, you will watch two videos to build your understanding of the <strong style="font-weight:bold">Cadet Wingman</strong> concept. Please pay close attention to the details in each video, as the knowledge you gain will be assessed in the final quiz.</p>
+		</div>
+
+		<div class="intro-button-container"><button class="btn" onclick="showSection('section2', 1)">Start Course</button>
+		</div>
+	</div>
+	<!-- 두 번째 섹션: 동영상 시청 1 -->
+
+	<div class="section" id="section2">
+		<h1>Video - Cadet Wingman Video</h1>
+
+		<div class="video-container"><iframe allowfullscreen="" frameborder="0" id="cadetVideo" src="https://www.youtube.com/embed/2P1t2gdH8DI"></iframe>
+		</div>
+
+		<div style="max-width: 100%; margin: 20px auto; text-align: left; line-height: 1.6;">
+			<h2>Learning Points</h2>
+
+			<p>This video focuses on four main topics: Core Values, the wingman concept, safety, and cadet protection. As you watch, think about:</p>
+
+			<ul>
+				<li>What do the <strong>Core Values</strong> mean to you? How can they shape your actions and decisions as a cadet?</li>
+				<li>How does the <strong>wingman concept</strong> apply to your daily life? Reflect on ways you can support and protect your fellow cadets.</li>
+				<li>Why is a <strong>pro-safety attitude</strong> crucial for cadets? How would you react in situations where safety might be at risk?</li>
+				<li>What are some <strong>warning signs of abuse</strong> to look out for in your wingman? What actions would you take if you suspect abuse?</li>
+			</ul>
+		</div>
+
+		<div class="button-container"><button class="btn" onclick="showSection('section1', 0)">Back</button><button class="btn" onclick="showSection('section3', 2)">Next</button>
+		</div>
+	</div>
+	<!-- 세 번째 섹션: 동영상 시청 2 -->
+
+	<div class="section" id="section3">
+		<h1>Video - Batman Begins</h1>
+
+		<div class="video-container">
+			<video controls="" id="batmanVideo"><source src="https://www.gocivilairpatrol.com/media/cms/Batman_Begins__The_Final_Test_1080p_2D176E0C703BF.mp4" type="video/mp4" /> 지원하지 않는 브라우저입니다.</video>
+		</div>
+
+		<div style="max-width: 100%; margin: 20px auto; text-align: left; line-height: 1.6;">
+			<h2>Learning Points</h2>
+
+			<p>As you watch &quot;Batman Begins: The Final Test,&quot; reflect on these questions. There are no right or wrong answers, so think deeply about your values:</p>
+
+			<h4>1. Honor and Moral Decisions</h4>
+
+			<p>Why does Batman choose his moral code over executing the prisoner? How would you handle a situation where you must choose between orders and your morals?</p>
+
+			<h4>2. Core Values in Action</h4>
+
+			<p>How do Batman&#39;s actions show values like courage, respect, or integrity? How do your values guide your choices in tough situations?</p>
+
+			<h4>3. The Role of Compassion</h4>
+
+			<p>Why is compassion important when making hard decisions? How can showing compassion help you as a wingman?</p>
+
+			<h4>4. Heroes vs. Villains</h4>
+
+			<p>What separates a &quot;hero&quot; from a &quot;villain&quot;? How can core values define one&#39;s character?</p>
+
+			<h4>5. Applying Core Values</h4>
+
+			<p>How do CAP&#39;s Core Values play a role in everyday life? Recall a time you acted in line with these values. What did you learn?</p>
+
+			<p>Use these questions to think about how Batman&#39;s actions relate to your own values.</p>
+		</div>
+
+		<div class="button-container"><button class="btn" onclick="showSection('section2', 1)">Back</button><button class="btn" onclick="showSection('section4', 3)">Next</button>
+		</div>
+	</div>
+	<!-- 네 번째 섹션: Final Quiz -->
+
+	<div class="section" id="section4">
+		<h1>Final Quiz</h1>
+		<iframe class="quiz-iframe" src="https://flwg049.github.io/wingman/index.html"></iframe>
+	</div>
+</div>
+<script>
+    // 섹션 간 이동을 위한 함수
+    function showSection(sectionId, navIndex) {
+        // 비디오 리셋
+        resetVideos();
+
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => section.classList.remove('active'));
+
+        document.getElementById(sectionId).classList.add('active');
+
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => item.classList.remove('active-nav'));
+
+        navItems[navIndex].classList.add('active-nav');
+    }
+
+    // 비디오 및 iframe 리셋 함수
+    function resetVideos() {
+        // 유튜브 동영상 리셋 (URL 재설정)
+        const cadetVideo = document.getElementById('cadetVideo');
+        cadetVideo.src = cadetVideo.src;
+
+        // 비디오 재설정
+        const batmanVideo = document.getElementById('batmanVideo');
+        batmanVideo.pause();
+        batmanVideo.currentTime = 0;
+    }
+</script>
